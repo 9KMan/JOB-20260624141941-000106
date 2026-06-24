@@ -1,86 +1,83 @@
-# Python Desktop Application Developer — AI Report Writing Tool (PySide6)
+# Specification: I'm a school psychologist, and I want to develop an AI-based report writer. There are many already on the market, but they are poor in quality. I can write better reports with my AI prompts, but I need a downloadable app to automate my workflow. I plan to give it away to other psychologists for free, and they will only have to pay the API fees. This project might be more collaborative than most, because it will be using AI prompts and other files that I have already written. I need a developer to build the application code, but almost all of the application's behavior — what it displays, how it processes data, what it sends to the LLM — is controlled through JSON config files and plain text prompt files. This will allow me to update the system without requiring code changes. I'm very passionate about this project and enjoy working with others, and I would be a very reliable collaborator. The app itself involves taking uploaded documents (mostly PDFs), and using LLM calls through AWS Bedrock to extract the relevant data. The user also enters a few decisions in the app, which uses all this information to generate a narrative. The user then reviews and edits the narrative, and the app exports a finished Word document based on a pre-written template. The extraction process already works very well in Claude — it reliably pulls the data I need from the PDFs and writes a high-quality narrative. For the app, I have developed a thorough blueprint that covers the architecture, data flow, feature specifications, and developer notes. The blueprint is detailed and specific, but I would always welcome a developer's perspective if they see a better way to implement something. The project would be built in phases, starting with the core pipeline. Required: Python, Qt (PySide6), experience building desktop applications, comfort working from a detailed blueprint. Nice to have: AWS Bedrock or boto3 experience, PDF processing, Word document generation (python-docx).
 
-**Built by: KMan | AI-Augmented Engineering Factory**
+## 1. Project Overview
 
-## 1. Overview
-
-A desktop application for school psychologists that automates AI-assisted report writing. The app ingests uploaded PDF documents (student records, assessments, etc.), uses AWS Bedrock LLM calls to extract relevant data and generate narrative drafts, lets the psychologist review/edit the narrative, and exports a finished Word document based on a pre-written template.
-
-Almost all app behavior (UI flow, data processing, LLM prompts) is controlled through JSON config files and plain text prompt files — enabling the psychologist to update the system without code changes.
-
-The client has:
-- Already-written AI prompts that produce high-quality narratives
-- A detailed blueprint covering architecture, data flow, feature specifications
-- Working knowledge of Claude-based extraction
+**Project:** I'm a school psychologist, and I want to develop an AI-based report writer. There are many already on the market, but they are poor in quality. I can write better reports with my AI prompts, but I need a downloadable app to automate my workflow. I plan to give it away to other psychologists for free, and they will only have to pay the API fees. This project might be more collaborative than most, because it will be using AI prompts and other files that I have already written. I need a developer to build the application code, but almost all of the application's behavior — what it displays, how it processes data, what it sends to the LLM — is controlled through JSON config files and plain text prompt files. This will allow me to update the system without requiring code changes. I'm very passionate about this project and enjoy working with others, and I would be a very reliable collaborator. The app itself involves taking uploaded documents (mostly PDFs), and using LLM calls through AWS Bedrock to extract the relevant data. The user also enters a few decisions in the app, which uses all this information to generate a narrative. The user then reviews and edits the narrative, and the app exports a finished Word document based on a pre-written template. The extraction process already works very well in Claude — it reliably pulls the data I need from the PDFs and writes a high-quality narrative. For the app, I have developed a thorough blueprint that covers the architecture, data flow, feature specifications, and developer notes. The blueprint is detailed and specific, but I would always welcome a developer's perspective if they see a better way to implement something. The project would be built in phases, starting with the core pipeline. Required: Python, Qt (PySide6), experience building desktop applications, comfort working from a detailed blueprint. Nice to have: AWS Bedrock or boto3 experience, PDF processing, Word document generation (python-docx).
+**GitHub Repo:** https://github.com/9KMan/JOB-20260624141941-000106
+**Lead:** 
+**Client:** School psychologist (individual)
+**Tier:** MICRO
+**Budget:** $35-$50/hr
+**Rate:** N/A
+**Timeline:** 4-8 weeks
 
 ## 2. Technical Stack
 
-- **Language:** Python 3.11+
-- **GUI:** PySide6 (Qt for Python)
-- **LLM API:** AWS Bedrock (boto3)
-- **PDF Processing:** pypdf / pdfplumber
-- **Word Generation:** python-docx
-- **Config-Driven:** JSON config + plain-text prompt files
-- **Distribution:** PyInstaller / briefcase for downloadable app
+Python · Desktop Application · API Integration · Natural Language Processing · Qt · PySide6 · AWS Bedrock · boto3 · PDF processing · python-docx
 
-## 3. Scope (Phase 1 — Core Pipeline)
+## 3. Architecture
 
-### Phase 1 — Core Pipeline
-- Desktop app shell (PySide6 main window)
-- JSON-driven workflow engine
-- PDF upload + text extraction
-- AWS Bedrock integration for data extraction
-- LLM prompt loader (plain-text files)
-- Narrative generation pipeline
-- Word document export with python-docx
-- Template-based report formatting
+- Backend: Python (FastAPI/Flask/Django) REST API
+- Cloud: AWS (EC2, S3, Lambda, CloudFront)
+- AI/ML: Model integration (OpenAI/Anthropic API or self-hosted)
+- Data: ETL pipeline with task orchestration
 
-### Phase 2 — Polish & Distribution
-- User preferences / settings
-- Report history
-- Error handling & offline mode
-- Packaging as downloadable installer
+### API Design
+- RESTful endpoints with JSON request/response
+- Authentication via JWT (HS256) or bcrypt
+- Middleware for logging, error handling, CORS
+- Versioned routes (/api/v1/...) where applicable
 
-## 4. Architecture
+### Data Layer
+- PostgreSQL as primary datastore
+- Connection pooling via PGBouncer or similar
+- Migration management via Alembic or raw SQL
+- Indexes on foreign keys and high-cardinality columns
+
+### Frontend (if applicable)
+- Single-page application or server-rendered pages
+- Responsive UI with modern CSS/JS framework
+- State management for complex client-side logic
+
+## 4. Data Model
+
+### Core Entities
+- Define entity schema based on job requirements
+- Use UUIDs for primary keys (not auto-increment)
+- Add created_at / updated_at timestamps to all tables
+- Soft-delete pattern where appropriate
+
+### Relationships
+- Foreign key constraints with ON DELETE CASCADE
+- Many-to-many via junction tables
+- Eager loading for nested relationships in API
+
+## 5. Project Structure
 
 ```
-src/
-├── app.py                 # PySide6 main entry
-├── core/
-│   ├── config.py          # JSON config loader
-│   ├── prompts.py         # Plain-text prompt loader
-│   ├── pdf_extract.py     # PDF → text
-│   ├── bedrock.py         # boto3 Bedrock client
-│   ├── pipeline.py        # Extraction → narrative pipeline
-│   └── docx_export.py     # python-docx report generator
-├── ui/
-│   ├── main_window.py     # Main QMainWindow
-│   ├── upload_widget.py   # PDF upload + preview
-│   ├── review_widget.py   # Narrative review/edit
-│   └── export_widget.py   # Word export
-└── config/
-    ├── app.json           # UI flow config
-    ├── fields.json        # Data field definitions
-    └── prompts/           # Plain-text prompt templates
+├── api/                  # FastAPI / Express routes + schemas
+├── models/               # DB models / SQLAlchemy / Prisma
+├── services/             # Business logic layer
+├── workers/              # Background jobs (Celery, BullMQ, etc.)
+├── migrations/           # DB migrations (Alembic / Flyway)
+├── tests/                # Unit + integration tests
+├── Dockerfile            # Production container
+├── docker-compose.yml    # Local dev environment
+└── README.md             # Setup instructions
 ```
 
-## 5. Deliverables
+## 6. Out of Scope
 
-- Working PySide6 desktop application
-- JSON-driven configuration system
-- Plain-text prompt loader
-- AWS Bedrock integration
-- PDF upload + extraction
-- Word document export
-- Sample blueprint-compliant workflow
-- README with distribution instructions
+- Mobile apps (web only unless explicitly specified)
+- Multi-tenant / white-label customization
+- Performance optimization at 1M+ user scale
 
-## 6. Acceptance Criteria
+## 7. Acceptance Criteria
 
-- App launches without errors on Windows/macOS/Linux
-- PDFs can be uploaded and text extracted
-- AWS Bedrock calls return structured data
-- Generated narrative renders in the review editor
-- Word document exports with correct template formatting
-- Config/prompt files can be edited without code changes
-- All app behavior is data-driven from JSON + .txt files
+- [ ] REST API with all planned endpoints implemented and returning JSON
+- [ ] Frontend UI implemented, responsive, and functional
+- [ ] AI/ML pipeline integrated and functional
+- [ ] AWS services configured per architecture
+- [ ] ETL pipeline processing data end-to-end
+
+**GitHub Repo:** https://github.com/9KMan/JOB-20260624141941-000106
