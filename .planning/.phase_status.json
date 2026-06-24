@@ -1,0 +1,37 @@
+{
+  "job_id": "JOB-20260624141941-000106",
+  "worker_dir": "/home/deploy/squad/build-worker/JOB-20260624141941-000106",
+  "completed": true,
+  "results": {
+    "1": {
+      "status": "partial",
+      "file": "/home/deploy/squad/build-worker/JOB-20260624141941-000106/.planning/phases/1-project-overview/PLAN-01.md"
+    },
+    "2": {
+      "status": "ok",
+      "file": "/home/deploy/squad/build-worker/JOB-20260624141941-000106/.planning/phases/2-technical-stack/PLAN-01.md"
+    },
+    "3": {
+      "status": "ok",
+      "file": "/home/deploy/squad/build-worker/JOB-20260624141941-000106/.planning/phases/3-architecture/PLAN-01.md"
+    },
+    "4": {
+      "status": "ok",
+      "file": "/home/deploy/squad/build-worker/JOB-20260624141941-000106/.planning/phases/4-data-model/PLAN-01.md"
+    },
+    "5": {
+      "status": "ok",
+      "file": "/home/deploy/squad/build-worker/JOB-20260624141941-000106/.planning/phases/5-project-structure/PLAN-01.md"
+    },
+    "6": {
+      "status": "ok",
+      "file": "/home/deploy/squad/build-worker/JOB-20260624141941-000106/.planning/phases/6-out-of-scope/PLAN-01.md"
+    },
+    "7": {
+      "status": "partial",
+      "file": "/home/deploy/squad/build-worker/JOB-20260624141941-000106/.planning/phases/7-ui/ux/PLAN-01.md"
+    }
+  },
+  "tech_stack": "Language:** Python 3.11+, GUI:** PySide6 (Qt for Python), LLM API:** AWS Bedrock (boto3), PDF Processing:** pypdf / pdfplumber, Word Generation:** python-docx, Config-Driven:** JSON config + plain-text prompt files, Distribution:** PyInstaller / briefcase for downloadable app",
+  "ts": 1782311092.3621225
+}
