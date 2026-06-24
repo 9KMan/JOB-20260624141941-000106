@@ -1,0 +1,24 @@
+json
+// config/app.json
+{
+  "app_name": "AI Report Writer",
+  "version": "0.1.0",
+  "aws": {
+    "region": "${AWS_REGION}",
+    "model_id": "${BEDROCK_MODEL_ID}"
+  },
+  "paths": {
+    "prompts_dir": "config/prompts",
+    "templates_dir": "config/templates"
+  },
+  "ui": {
+    "window": {
+      "width": 1200,
+      "height": 800,
+      "min_width": 900,
+      "min_height": 600
+    },
+    "tabs": ["Upload", "Review", "Export"]
+  }
+}
+

@@ -48,3 +48,4 @@ def load_config(path: Path) -> dict:
         raise ValueError(f"Config root in {path} must be a JSON object, got {type(expanded).__name__}")
     return expanded
 
+

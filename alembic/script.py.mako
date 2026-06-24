@@ -1,4 +1,5 @@
 // alembic/script.py.mako
+// alembic/script.py.mako
 """${message}
 
 Revision ID: ${rev}
@@ -14,3 +15,4 @@ revision: str = ${repr(rev)}
 down_revision: Union[str, None] = ${repr(down_rev)}
 branch_labels: Union[str, Sequence[str], None] = ${repr(branch_labels)}
 depends_on: Union[str, Sequence[str], None] = ${repr(depends_on)}
+

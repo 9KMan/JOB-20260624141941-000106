@@ -90,3 +90,4 @@ class BedrockClient:
         except (KeyError, TypeError) as exc:
             raise BedrockError(f"Unexpected Bedrock response shape: {json.dumps(response)[:500]}") from exc
 
+

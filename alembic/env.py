@@ -1,5 +1,7 @@
 python
 // alembic/env.py
+python
+// alembic/env.py
 """Alembic async migration environment."""
 from logging.config import fileConfig
 from sqlalchemy import pool
@@ -37,3 +39,4 @@ if context.is_offline_mode():
 else:
     import asyncio
     asyncio.run(run_async_migrations())
+
