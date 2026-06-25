@@ -24,7 +24,7 @@
       "file": "/home/deploy/squad/build-worker/JOB-20260624141941-000106/.planning/phases/5-project-structure/PLAN-01.md"
     },
     "6": {
-      "status": "ok",
+      "status": "partial",
       "file": "/home/deploy/squad/build-worker/JOB-20260624141941-000106/.planning/phases/6-out-of-scope/PLAN-01.md"
     },
     "7": {
@@ -32,6 +32,21 @@
       "file": "/home/deploy/squad/build-worker/JOB-20260624141941-000106/.planning/phases/7-ui/ux/PLAN-01.md"
     }
   },
-  "tech_stack": "Language:** Python 3.11+, GUI:** PySide6 (Qt for Python), LLM API:** AWS Bedrock (boto3), PDF Processing:** pypdf / pdfplumber, Word Generation:** python-docx, Config-Driven:** JSON config + plain-text prompt files, Distribution:** PyInstaller / briefcase for downloadable app",
-  "ts": 1782311363.239562
+  "tech_stack": "Python, Desktop Application, API Integration, Natural Language Processing, Qt, PySide6, AWS Bedrock, boto3, PDF processing, python-docx",
+  "ts": 1782400905.0517612,
+  "1": {
+    "status": "ok",
+    "error": "",
+    "ts": 1782400939.1053526
+  },
+  "2": {
+    "status": "ok",
+    "error": "",
+    "ts": 1782400979.1623018
+  },
+  "3": {
+    "status": "ok",
+    "error": "",
+    "ts": 1782401087.8877118
+  }
 }

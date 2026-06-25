@@ -6,7 +6,7 @@ Establish the directory layout, module boundaries, and file organization.
 ## Files to Create
 
 ```file:README.md
-# # Python Desktop Application Developer — AI Report Writing T
+# # Specification: I'm a school psychologist, and I want to de
 
 **Built by: KMan | AI-Augmented Engineering Factory**
 
@@ -24,7 +24,7 @@ uvicorn app.main:app --reload  # or: npm run dev
 ```
 
 ## Tech Stack
-Language:** Python 3.11+, GUI:** PySide6 (Qt for Python), LLM API:** AWS Bedrock (boto3), PDF Processing:** pypdf / pdfplumber, Word Generation:** python-docx, Config-Driven:** JSON config + plain-text prompt files, Distribution:** PyInstaller / briefcase for downloadable app
+Python, Desktop Application, API Integration, Natural Language Processing, Qt, PySide6, AWS Bedrock, boto3, PDF processing, python-docx
 
 ## Project Structure
 ```
